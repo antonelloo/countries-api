@@ -1,6 +1,9 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const PORT = 8000
+
+app.use(cors())
 
 const countries = {
     'afghanistan': {
@@ -3271,6 +3274,6 @@ app.get('/api/:name', (request, response)=>{
     response.json(countries)
 })
 
-app.listen(PORT, ()=>{
+app.listen(process.env.PORT || PORT, ()=>{
     console.log(`The server is now running on port ${PORT}!`)
 })
